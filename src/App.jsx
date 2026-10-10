@@ -9,11 +9,15 @@ import {
   Languages, 
   Globe2, 
   ExternalLink,
-  PenTool
+  PenTool,
+  UserCheck,
+  LogOut,
+  ShieldCheck
 } from 'lucide-react';
 
 import { UNITS, LEVELS, getUnitById, getLevelById, getUnitsByLevel } from './data/curriculumData';
 import { useUserProgress } from './hooks/useUserProgress';
+import { useCloudflareAccessUser } from './hooks/useCloudflareAccessUser';
 import { ProgressBar } from './components/ProgressBar';
 import { DualLookupBar } from './components/DualLookupBar';
 import { LevelUnitSelector } from './components/LevelUnitSelector';
@@ -40,6 +44,8 @@ export function App() {
     triggerCelebration,
     closeCelebration
   } = useUserProgress();
+
+  const { user: accessUser, logoutUrl } = useCloudflareAccessUser();
 
   const [activeTab, setActiveTab] = useState('flashcard'); // 'flashcard' | 'subtitles' | 'grammar' | 'quiz'
 
@@ -114,8 +120,55 @@ export function App() {
             </div>
           </div>
 
-          {/* Quick Links & Domain */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          {/* Quick Links & Domain & SSO Profile */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+            {accessUser ? (
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '5px 12px',
+                borderRadius: '12px',
+                background: '#ECFDF5',
+                border: '1px solid #A7F3D0',
+                color: '#065F46',
+                fontSize: '0.82rem',
+                fontWeight: 600
+              }}>
+                <ShieldCheck size={16} color="#059669" />
+                <span>{accessUser.email}</span>
+                <a
+                  href={logoutUrl}
+                  title="Đăng xuất SSO"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    color: '#991B1B',
+                    marginLeft: '4px',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <LogOut size={14} />
+                </a>
+              </div>
+            ) : (
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '5px 10px',
+                borderRadius: '12px',
+                background: '#EEF2FF',
+                border: '1px solid #C7D2FE',
+                color: '#3730A3',
+                fontSize: '0.78rem',
+                fontWeight: 700
+              }}>
+                <UserCheck size={14} />
+                <span>Cloudflare SSO</span>
+              </div>
+            )}
+
             <div style={{
               display: 'flex',
               alignItems: 'center',
