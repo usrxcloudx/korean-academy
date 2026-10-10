@@ -58,7 +58,7 @@ export function ParallelSubtitles({ unitData }) {
             <audio
               controls
               style={{ height: '40px', borderRadius: '20px', outline: 'none' }}
-              src={audioTrack.r2Url}
+              src={audioTrack.audioUrl || audioTrack.r2Url}
             >
               Trình duyệt của bạn không hỗ trợ thẻ audio.
             </audio>

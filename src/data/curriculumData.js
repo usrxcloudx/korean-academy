@@ -77,7 +77,7 @@ export const UNITS = [
     audioTrack: {
       trackName: 'Track 09 & 10 (Sơ cấp 1)',
       fileName: '009.mp3',
-      r2Url: 'https://r2.aixfactory.io.vn/korean-audio/so-cap-1/009.mp3',
+      audioUrl: '/audio/so-cap-1/009.mp3',
       duration: '01:45'
     },
     vocabulary: [
@@ -455,7 +455,7 @@ export const UNITS = [
     audioTrack: {
       trackName: 'Track 16 & 17 (Sơ cấp 1)',
       fileName: '016.mp3',
-      r2Url: 'https://r2.aixfactory.io.vn/korean-audio/so-cap-1/016.mp3',
+      audioUrl: '/audio/so-cap-1/016.mp3',
       duration: '02:10'
     },
     vocabulary: [
@@ -667,7 +667,7 @@ export const UNITS = [
     audioTrack: {
       trackName: 'Track 01 (Sơ cấp 2)',
       fileName: '001.mp3',
-      r2Url: 'https://r2.aixfactory.io.vn/korean-audio/so-cap-2/001.mp3',
+      audioUrl: '/audio/so-cap-2/001.mp3',
       duration: '02:05'
     },
     vocabulary: [
