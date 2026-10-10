@@ -7,6 +7,7 @@ import { TRUNG_CAP_1_UNITS } from './trungCap1Units.js';
 import { TRUNG_CAP_2_UNITS } from './trungCap2Units.js';
 import { CAO_CAP_1_UNITS } from './caoCap1Units.js';
 import { CAO_CAP_2_UNITS } from './caoCap2Units.js';
+import { WORKBOOK_EXERCISES } from './workbookExercisesData.js';
 
 export const LEVELS = [
   {
@@ -71,7 +72,7 @@ export const LEVELS = [
   }
 ];
 
-export const UNITS = [
+const RAW_UNITS = [
   // ========== SƠ CẤP 1 ==========
   {
     id: 'sc1_u1',
@@ -679,6 +680,11 @@ export const UNITS = [
   // ========== CAO CẤP 2 (고급 6) ==========
   ...CAO_CAP_2_UNITS
 ];
+
+export const UNITS = RAW_UNITS.map(unit => ({
+  ...unit,
+  workbook: WORKBOOK_EXERCISES[unit.id] || []
+}));
 
 export function getUnitsByLevel(levelId) {
   return UNITS.filter(u => u.levelId === levelId);

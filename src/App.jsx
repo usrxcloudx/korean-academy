@@ -8,7 +8,8 @@ import {
   GraduationCap, 
   Languages, 
   Globe2, 
-  ExternalLink 
+  ExternalLink,
+  PenTool
 } from 'lucide-react';
 
 import { UNITS, LEVELS, getUnitById, getLevelById, getUnitsByLevel } from './data/curriculumData';
@@ -20,6 +21,7 @@ import { VocabularyFlashcard } from './components/VocabularyFlashcard';
 import { ParallelSubtitles } from './components/ParallelSubtitles';
 import { GrammarSection } from './components/GrammarSection';
 import { QuizSection } from './components/QuizSection';
+import { WorkbookSection } from './components/WorkbookSection';
 
 export function App() {
   const {
@@ -256,6 +258,20 @@ export function App() {
               </button>
 
               <button
+                onClick={() => setActiveTab('workbook')}
+                className={`clay-btn ${activeTab === 'workbook' ? 'clay-btn-primary' : ''}`}
+                style={{
+                  padding: '8px 18px',
+                  fontSize: '0.88rem',
+                  background: activeTab === 'workbook' ? undefined : 'transparent',
+                  color: activeTab === 'workbook' ? '#FFFFFF' : '#475569',
+                  boxShadow: activeTab === 'workbook' ? undefined : 'none'
+                }}
+              >
+                <PenTool size={16} /> Sách bài tập ({(currentUnit.workbook || []).length})
+              </button>
+
+              <button
                 onClick={() => setActiveTab('quiz')}
                 className={`clay-btn ${activeTab === 'quiz' ? 'clay-btn-primary' : ''}`}
                 style={{
@@ -289,6 +305,14 @@ export function App() {
 
           {activeTab === 'grammar' && (
             <GrammarSection grammarPoints={currentUnit.grammarPoints} />
+          )}
+
+          {activeTab === 'workbook' && (
+            <WorkbookSection
+              unit={currentUnit}
+              onScoreAdd={addScore}
+              onCompleteSection={markQuizCompleted}
+            />
           )}
 
           {activeTab === 'quiz' && (
