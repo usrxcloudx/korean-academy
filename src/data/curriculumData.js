@@ -2,6 +2,11 @@
 // Trilingual Korean - Vietnamese - English
 
 import { REMAINING_SC1_UNITS } from './remainingSc1Units.js';
+import { SO_CAP_2_UNITS } from './soCap2Units.js';
+import { TRUNG_CAP_1_UNITS } from './trungCap1Units.js';
+import { TRUNG_CAP_2_UNITS } from './trungCap2Units.js';
+import { CAO_CAP_1_UNITS } from './caoCap1Units.js';
+import { CAO_CAP_2_UNITS } from './caoCap2Units.js';
 
 export const LEVELS = [
   {
@@ -660,286 +665,19 @@ export const UNITS = [
   ...REMAINING_SC1_UNITS,
 
   // ========== SƠ CẤP 2 ==========
-  {
-    id: 'sc2_u1',
-    levelId: 'so_cap_2',
-    unitNumber: 1,
-    titleKo: '만남',
-    titleVi: 'Bài 1: Gặp gỡ',
-    titleEn: 'Unit 1: Meeting & Reunion',
-    description: 'Học cách hỏi thăm tình hình, nói về thời gian trôi qua, ngữ pháp -(으)ㄴ 지, -아/어 보다.',
-    audioTrack: {
-      trackName: 'Track 01 (Sơ cấp 2)',
-      fileName: '001.mp3',
-      audioUrl: '/audio/so-cap-2/001.mp3',
-      duration: '02:05'
-    },
-    vocabulary: [
-      {
-        id: 'sc2_u1_w1',
-        hangul: '오랜만입니다',
-        romaja: 'o-raen-man-im-ni-da',
-        type: 'Chào hỏi',
-        meaningVi: 'Lâu rồi không gặp',
-        meaningEn: 'Long time no see',
-        example: {
-          ko: '민수 씨, 정말 오랜만입니다!',
-          vi: 'Min-soo à, lâu lắm rồi không gặp!',
-          en: 'Min-soo, long time no see indeed!'
-        },
-        dialogue: {
-          speakerA: '유나',
-          speakerB: '민수',
-          lineA: '오랜만이에요! 잘 지냈어요?',
-          lineB: '네, 유나 씨도 잘 지냈어요?',
-          lineAVi: 'Lâu rồi không gặp! Cậu khỏe không?',
-          lineBVi: 'Tớ khỏe, Yuna cũng khỏe chứ?',
-          lineAEn: 'Long time no see! Have you been well?',
-          lineBEn: 'Yes, how about you, Yuna?'
-        },
-        exercise: {
-          questionKo: '오랜만에 만났을 때 하는 인사는?',
-          questionVi: 'Khi lâu ngày mới gặp lại người quen, ta chào câu gì?',
-          questionEn: 'Greeting used when meeting someone after a long time?',
-          options: ['오랜만입니다', '처음 뵙겠습니다', '안녕히 가세요', '실례합니다'],
-          correctIndex: 0,
-          explanation: '오랜만입니다 dùng khi lâu ngày tái ngộ.'
-        }
-      },
-      {
-        id: 'sc2_u1_w2',
-        hangul: '소식',
-        romaja: 'so-sik',
-        hanja: '消息',
-        type: 'Danh từ',
-        meaningVi: 'Tin tức / Tin tức người quen',
-        meaningEn: 'News / Tidings',
-        example: {
-          ko: '친구의 소식을 들었습니다.',
-          vi: 'Tôi đã nghe tin tức của bạn mình.',
-          en: 'I heard news about my friend.'
-        },
-        dialogue: {
-          speakerA: '민우',
-          speakerB: '지훈',
-          lineA: '그 사람 소식 들었어요?',
-          lineB: '아니요, 연락이 없었어요.',
-          lineAVi: 'Cậu có nghe tin gì về người đó không?',
-          lineBVi: 'Không, không có liên lạc gì cả.',
-          lineAEn: 'Did you hear any news about him?',
-          lineBEn: 'No, there was no contact.'
-        },
-        exercise: {
-          questionKo: '누군가의 상황이나 안부를 알리는 말은?',
-          questionVi: 'Từ dùng để chỉ tin tức, tình hình của ai đó là?',
-          questionEn: 'Word meaning news or updates about someone?',
-          options: ['소식', '음식', '상식', '휴식'],
-          correctIndex: 0,
-          explanation: '소식 (消息) nghĩa là tin tức, tin nhạn.'
-        }
-      }
-    ],
-    parallelSubtitles: [
-      {
-        id: 'sub_sc2_1',
-        speaker: '유나 (Yuna)',
-        ko: '민수 씨, 정말 오랜만입니다! 그동안 잘 지내셨어요?',
-        romaja: 'Min-su ssi, jeong-mal o-raen-man-im-ni-da! Geu-dong-an jal ji-nae-syeot-seo-yo?',
-        vi: 'Min-soo à, thật là lâu lắm rồi không gặp! Dạo này cậu vẫn khỏe chứ?',
-        en: 'Min-soo, long time no see! Have you been doing well all this time?'
-      },
-      {
-        id: 'sub_sc2_2',
-        speaker: '민수 (Min-soo)',
-        ko: '네, 덕분에 잘 지냈어요. 유나 씨는 요즘 어떻게 지내세요?',
-        romaja: 'Ne, deok-bun-e jal ji-naet-eo-yo. Yu-na ssi-neun yo-jeum eo-tteo-ke ji-nae-se-yo?',
-        vi: 'Ừ, nhờ cậu tớ vẫn khỏe. Dạo này Yuna sống thế nào rồi?',
-        en: 'Yes, thanks to you I have been well. How have you been spending your days lately, Yuna?'
-      }
-    ],
-    grammarPoints: [
-      {
-        name: '-(으)ㄴ 지 (Đã làm gì được bao lâu)',
-        formula: 'Động từ + -(으)ㄴ 지 + Khoảng thời gian + 되다',
-        explanationVi: 'Diễn tả khoảng thời gian đã trôi qua kể từ khi thực hiện một hành động nào đó.',
-        explanationEn: 'Expresses the amount of time elapsed since an action occurred.',
-        examples: [
-          { ko: '한국어를 배운 지 6개월이 되었습니다.', vi: 'Tôi học tiếng Hàn đã được 6 tháng rồi.', en: 'It has been 6 months since I started learning Korean.' }
-        ]
-      }
-    ],
-    quizzes: [
-      {
-        id: 'sc2_q1',
-        question: 'Điền vào chỗ trống: "한국에 ____ 1년이 되었습니다." (Đến Hàn Quốc đã được 1 năm)',
-        options: ['온 지', '오는 지', '오고', '오면'],
-        correctIndex: 0,
-        explanation: 'Động từ 오다 kết hợp với cấu trúc -(으)ㄴ 지 thành 온 지.'
-      }
-    ]
-  },
+  ...SO_CAP_2_UNITS,
 
-  // ========== TRUNG CẤP 3 ==========
-  {
-    id: 'tc3_u1',
-    levelId: 'trung_cap_1',
-    unitNumber: 1,
-    titleKo: '대인관계',
-    titleVi: 'Bài 1: Mối quan hệ xã hội',
-    titleEn: 'Unit 1: Interpersonal Relationships',
-    description: 'Bàn về tính cách, nghệ thuật ứng xử, giao tiếp nơi làm việc và ngữ pháp -(으)ㄹ 뿐만 아니라, -기 마련이다.',
-    audioTrack: {
-      trackName: 'Track 01 (Trung cấp 3)',
-      fileName: '001.mp3',
-      r2Url: 'https://r2.aixfactory.io.vn/korean-audio/trung-cap-3/001.mp3',
-      duration: '02:30'
-    },
-    vocabulary: [
-      {
-        id: 'tc3_u1_w1',
-        hangul: '원만하다',
-        romaja: 'won-man-ha-da',
-        hanja: '圓滿하다',
-        type: 'Tính từ',
-        meaningVi: 'Hòa đồng, êm đẹp, viên mãn',
-        meaningEn: 'Harmonious / Smooth / Sociable',
-        example: {
-          ko: '그 사람은 성격이 원만해서 인기가 많습니다.',
-          vi: 'Người đó tính tình hòa đồng nên rất được yêu mến.',
-          en: 'He has an amiable personality and is very popular.'
-        },
-        dialogue: {
-          speakerA: '팀장',
-          speakerB: '대리',
-          lineA: '김 대리는 대인관계가 참 원만해요.',
-          lineB: '네, 항상 남을 배려하기 때문입니다.',
-          lineAVi: 'Trợ lý Kim quan hệ xã hội rất hòa nhã.',
-          lineBVi: 'Vâng, vì anh ấy luôn quan tâm chu đáo tới người khác.',
-          lineAEn: 'Assistant Manager Kim has very harmonious relationships.',
-          lineBEn: 'Yes, because he is always considerate of others.'
-        },
-        exercise: {
-          questionKo: '성격이 부드럽고 다른 사람과 잘 어울리는 모습을 나타내는 단어는?',
-          questionVi: 'Từ miêu tả tính cách mềm mỏng, dễ hòa hợp với mọi người là?',
-          questionEn: 'Word describing an amiable personality easy to get along with?',
-          options: ['원만하다', '까다롭다', '내성적이다', '소심하다'],
-          correctIndex: 0,
-          explanation: '원만하다 (viên mãn) chỉ sự hòa nhã, êm đẹp.'
-        }
-      }
-    ],
-    parallelSubtitles: [
-      {
-        id: 'sub_tc3_1',
-        speaker: '전문가 (Chuyên gia)',
-        ko: '사회생활에서 성공하기 위해서는 직무 능력뿐만 아니라 원만한 대인관계가 필수적입니다.',
-        romaja: 'Sa-hoe-saeng-hwal-e-seo seong-gong-ha-gi wi-hae-seo-neun jik-mu neung-ryeok-ppun-man a-ni-ra won-man-han dae-in-gwan-gye-ga pil-su-jeok-im-ni-da.',
-        vi: 'Để thành công trong cuộc sống xã hội, không chỉ năng lực chuyên môn mà mối quan hệ hòa đồng với mọi người cũng là điều thiết yếu.',
-        en: 'To succeed in social life, not only job competence but also smooth interpersonal relations are indispensable.'
-      }
-    ],
-    grammarPoints: [
-      {
-        name: '-(으)ㄹ 뿐만 아니라 (Không những ... mà còn)',
-        formula: 'Động/Tính từ + -(으)ㄹ 뿐만 아니라',
-        explanationVi: 'Liên từ thể hiện vế sau bổ sung thêm thông tin cho vế trước (tương tự not only... but also).',
-        explanationEn: 'Indicates that in addition to the preceding fact, another fact is also true.',
-        examples: [
-          { ko: '그는 똑똑할 뿐만 아니라 성실합니다.', vi: 'Anh ấy không những thông minh mà còn rất chăm chỉ.', en: 'He is not only smart but also diligent.' }
-        ]
-      }
-    ],
-    quizzes: [
-      {
-        id: 'tc3_q1',
-        question: 'Chọn câu đúng: "그 사람은 일을 잘할 뿐만 아니라 친절____."',
-        options: ['합니다', '해서', '하면', '하고'],
-        correctIndex: 0,
-        explanation: 'Vế sau kết thúc câu trọn vẹn là "친절합니다".'
-      }
-    ]
-  },
+  // ========== TRUNG CẤP 1 (중급 3) ==========
+  ...TRUNG_CAP_1_UNITS,
 
-  // ========== CAO CẤP 5 & 6 ==========
-  {
-    id: 'cc5_u1',
-    levelId: 'cao_cap_1',
-    unitNumber: 1,
-    titleKo: '현대 사회와 가치관',
-    titleVi: 'Bài 1: Xã hội hiện đại và Hệ giá trị',
-    titleEn: 'Unit 1: Modern Society & Value Systems',
-    description: 'Chuyên đề triết luận về sự biến đổi văn hóa, đạo đức truyền thống và các xung đột thế hệ trong kỷ nguyên số.',
-    audioTrack: {
-      trackName: 'Track 01 (Cao cấp 5)',
-      fileName: '001.mp3',
-      r2Url: 'https://r2.aixfactory.io.vn/korean-audio/cao-cap-5/001.mp3',
-      duration: '03:15'
-    },
-    vocabulary: [
-      {
-        id: 'cc5_u1_w1',
-        hangul: '다원화',
-        romaja: 'da-won-hwa',
-        hanja: '多元化',
-        type: 'Danh từ',
-        meaningVi: 'Đa nguyên hóa, đa dạng hóa',
-        meaningEn: 'Pluralization / Diversification',
-        example: {
-          ko: '현대 사회는 가치관이 급격히 다원화되고 있습니다.',
-          vi: 'Xã hội hiện đại đang chứng kiến các giá trị quan được đa nguyên hóa một cách nhanh chóng.',
-          en: 'Modern society is rapidly undergoing value pluralization.'
-        },
-        dialogue: {
-          speakerA: '사회학자 A',
-          speakerB: '사회학자 B',
-          lineA: '가치관의 다원화가 갈등을 유발하기도 합니다.',
-          lineB: '하지만 그것이 민주 사회의 건강한 징표입니다.',
-          lineAVi: 'Sự đa nguyên hóa hệ giá trị đôi khi cũng làm phát sinh xung đột.',
-          lineBVi: 'Thế nhưng đó lại chính là biểu hiện lành mạnh của một xã hội dân chủ.',
-          lineAEn: 'Pluralization of values sometimes triggers conflicts.',
-          lineBEn: 'However, that is a healthy hallmark of a democratic society.'
-        },
-        exercise: {
-          questionKo: '사회 구성원의 생각과 삶의 방식이 여러 갈래로 다양해지는 현상은?',
-          questionVi: 'Hiện tượng suy nghĩ và lối sống của thành viên xã hội trở nên đa dạng nhiều hướng là?',
-          questionEn: 'Phenomenon of diversifying ways of life and values?',
-          options: ['다원화', '획일화', '고령화', '도시화'],
-          correctIndex: 0,
-          explanation: '다원화 (Đa nguyên hóa) trái nghĩa với 획일화 (Đồng nhất hóa/Rập khuôn).'
-        }
-      }
-    ],
-    parallelSubtitles: [
-      {
-        id: 'sub_cc5_1',
-        speaker: '교수 (Giáo sư)',
-        ko: '산업화와 정보화를 거치며 한국 사회는 물질적 풍요를 얻은 반면, 공동체적 연대감의 약화라는 새로운 과제에 직면해 있습니다.',
-        romaja: 'San-eop-hwa-wa jeong-bo-hwa-reul geo-chi-myeo Han-guk sa-hoe-neun mul-jil-jeok pung-yo-reul eot-eun ban-myeon, gong-dong-che-jeok yeon-dae-gam-ui yak-hwa-ra-neun sae-ro-un gwa-je-e jik-myeon-hae it-seum-ni-da.',
-        vi: 'Trải qua quá trình công nghiệp hóa và thông tin hóa, xã hội Hàn Quốc một mặt đạt được sự sung túc vật chất, mặt khác lại đang đối mặt với bài toán mới về sự suy giảm tinh thần gắn kết cộng đồng.',
-        en: 'Through industrialization and informatization, while Korean society achieved material affluence, it is simultaneously facing the new challenge of weakening communal solidarity.'
-      }
-    ],
-    grammarPoints: [
-      {
-        name: '-는 반면에 (Trái lại / Mặt khác)',
-        formula: 'Động từ + -는 반면에 | Tính từ + -(으)ㄴ 반면에',
-        explanationVi: 'Diễn tả hai mặt đối lập hoặc trái ngược nhau của một sự vật, hiện tượng.',
-        explanationEn: 'Used to express two contrasting aspects of a subject or event ("on the other hand").',
-        examples: [
-          { ko: '도시 생활은 편리한 반면에 스트레스가 많습니다.', vi: 'Cuộc sống đô thị tiện nghi mặt khác lại có nhiều căng thẳng.', en: 'While urban life is convenient, it carries a lot of stress.' }
-        ]
-      }
-    ],
-    quizzes: [
-      {
-        id: 'cc5_q1',
-        question: 'Chọn từ trái nghĩa với "다원화" (Đa nguyên hóa):',
-        options: ['획일화 (Đồng nhất/Rập khuôn)', '개인화', '세계화', '정보화'],
-        correctIndex: 0,
-        explanation: '획일화 (획일적) nghĩa là áp đặt đồng nhất một khuôn mẫu, trái ngược với đa nguyên hóa.'
-      }
-    ]
-  }
+  // ========== TRUNG CẤP 2 (중급 4) ==========
+  ...TRUNG_CAP_2_UNITS,
+
+  // ========== CAO CẤP 1 (고급 5) ==========
+  ...CAO_CAP_1_UNITS,
+
+  // ========== CAO CẤP 2 (고급 6) ==========
+  ...CAO_CAP_2_UNITS
 ];
 
 export function getUnitsByLevel(levelId) {
