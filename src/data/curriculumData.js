@@ -1,6 +1,8 @@
 // Curriculum registry following "Giáo trình Tiếng Hàn Tổng hợp" (Levels 1 to 6)
 // Trilingual Korean - Vietnamese - English
 
+import { REMAINING_SC1_UNITS } from './remainingSc1Units.js';
+
 export const LEVELS = [
   {
     id: 'so_cap_1',
@@ -654,6 +656,8 @@ export const UNITS = [
       }
     ]
   },
+
+  ...REMAINING_SC1_UNITS,
 
   // ========== SƠ CẤP 2 ==========
   {
