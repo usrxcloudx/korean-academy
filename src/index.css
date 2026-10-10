@@ -1,0 +1,166 @@
+:root {
+  --font-hangul: 'Noto Sans KR', sans-serif;
+  --font-body: 'Baloo 2', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  --color-primary: #4F46E5;
+  --color-primary-light: #EEF2FF;
+  --color-primary-dark: #3730A3;
+
+  --color-accent: #E11D48; /* Korean Rose / Dancheong */
+  --color-accent-light: #FFE4E6;
+  
+  --color-teal: #0D9488;
+  --color-teal-light: #CCFBF1;
+
+  --color-amber: #D97706;
+  --color-amber-light: #FEF3C7;
+
+  --color-bg: #F8FAFC;
+  --color-card-bg: #FFFFFF;
+  --color-text: #0F172A;
+  --color-text-muted: #64748B;
+
+  --radius-clay-card: 26px;
+  --radius-clay-btn: 18px;
+
+  /* Claymorphism Box Shadow Stacks */
+  --clay-shadow-card: 
+    10px 14px 28px rgba(79, 70, 229, 0.08),
+    -10px -10px 24px rgba(255, 255, 255, 0.95),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.9),
+    inset -2px -2px 5px rgba(79, 70, 229, 0.04);
+
+  --clay-shadow-btn-primary:
+    4px 8px 16px rgba(79, 70, 229, 0.35),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.15);
+
+  --clay-shadow-btn-rose:
+    4px 8px 16px rgba(225, 29, 72, 0.35),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.15);
+
+  --clay-shadow-btn-teal:
+    4px 8px 16px rgba(13, 148, 136, 0.35),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.15);
+
+  --clay-shadow-pressed:
+    inset 3px 3px 6px rgba(0, 0, 0, 0.2),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(79, 70, 229, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(225, 29, 72, 0.04) 0%, transparent 40%);
+  color: var(--color-text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hangul-font {
+  font-family: var(--font-hangul);
+}
+
+/* Claymorphism Cards */
+.clay-card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-clay-card);
+  box-shadow: var(--clay-shadow-card);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+}
+
+.clay-card-hover:hover {
+  transform: translateY(-4px);
+}
+
+/* Clay Buttons */
+.clay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  border-radius: var(--radius-clay-btn);
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.clay-btn-primary {
+  background: linear-gradient(135deg, #6366F1, #4F46E5);
+  color: #FFFFFF;
+  box-shadow: var(--clay-shadow-btn-primary);
+}
+
+.clay-btn-rose {
+  background: linear-gradient(135deg, #F43F5E, #E11D48);
+  color: #FFFFFF;
+  box-shadow: var(--clay-shadow-btn-rose);
+}
+
+.clay-btn-teal {
+  background: linear-gradient(135deg, #14B8A6, #0D9488);
+  color: #FFFFFF;
+  box-shadow: var(--clay-shadow-btn-teal);
+}
+
+.clay-btn-secondary {
+  background: #EEF2FF;
+  color: #4338CA;
+  box-shadow: 2px 4px 10px rgba(79, 70, 229, 0.12);
+}
+
+.clay-btn:active {
+  transform: scale(0.96) translateY(2px);
+  box-shadow: var(--clay-shadow-pressed);
+}
+
+/* Microphone Pulse */
+@keyframes pulse-mic {
+  0% {
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(225, 29, 72, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+  }
+}
+
+.recording-pulse {
+  animation: pulse-mic 1.5s infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
