@@ -8,6 +8,7 @@ import { TRUNG_CAP_2_UNITS } from './trungCap2Units.js';
 import { CAO_CAP_1_UNITS } from './caoCap1Units.js';
 import { CAO_CAP_2_UNITS } from './caoCap2Units.js';
 import { WORKBOOK_EXERCISES } from './workbookExercisesData.js';
+import { VOCABULARY_DATA } from './allVocabularyData.js';
 
 export const LEVELS = [
   {
@@ -681,10 +682,15 @@ const RAW_UNITS = [
   ...CAO_CAP_2_UNITS
 ];
 
-export const UNITS = RAW_UNITS.map(unit => ({
-  ...unit,
-  workbook: WORKBOOK_EXERCISES[unit.id] || []
-}));
+export const UNITS = RAW_UNITS.map(unit => {
+  const existingVocab = unit.vocabulary || [];
+  const enrichedVocab = VOCABULARY_DATA[unit.id] || [];
+  return {
+    ...unit,
+    vocabulary: existingVocab.length >= enrichedVocab.length ? existingVocab : enrichedVocab,
+    workbook: WORKBOOK_EXERCISES[unit.id] || []
+  };
+});
 
 export function getUnitsByLevel(levelId) {
   return UNITS.filter(u => u.levelId === levelId);
